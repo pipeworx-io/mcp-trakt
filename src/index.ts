@@ -199,6 +199,7 @@ async function traktFetch<T>(apiKey: string, path: string, params: URLSearchPara
       'trakt-api-key': apiKey,
       'trakt-api-version': '2',
       Accept: 'application/json',
+      'User-Agent': 'pipeworx-mcp-trakt/1.0 (+https://pipeworx.io)',
     },
   });
   if (res.status === 401 || res.status === 403) throw new Error('Trakt: unauthorized — check the client_id');

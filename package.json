@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-trakt",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Trakt MCP — TV/movie metadata + watch tracking signals",
   "type": "module",
   "main": "src/index.ts",
