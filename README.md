@@ -1,19 +1,29 @@
-# mcp-trakt
+# @pipeworx/trakt
 
-Trakt MCP — TV/movie metadata + watch tracking signals
+Trakt.tv MCP — TV/movie metadata + trending/popular signals.
 
-Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 673+ live data sources.
+Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1394+ live data sources.
 
 ## Tools
 
-| Tool | Description |
-|------|-------------|
-| `get_movie` | Movie record by trakt ID / slug / IMDB ID. Use extended=full for plot/runtime/genres/cast. |
-| `get_show` | Show record. Use extended=full for runtime/genres/cast/rating/airs/etc. |
-| `list_seasons` | Seasons + episode counts for a show. |
-| `get_episode` | Single episode by show + season + episode number. |
-| `trending` | Currently-trending movies or shows. |
-| `popular` | All-time popular movies or shows. |
+- `search(query, type?, fields?, years?, genres?, countries?, languages?, page?, limit?)`
+- `get_movie(id, extended?)`
+- `get_show(id, extended?)`
+- `list_seasons(show_id, extended?)`
+- `get_episode(show_id, season, episode, extended?)`
+- `trending(type, limit?, page?)`
+- `popular(type, limit?, page?)`
+
+## Auth
+
+- **Platform key:** gateway env `PLATFORM_TRAKT_KEY` (client_id from a registered Trakt app).
+- **BYO:** `?_apiKey=<client_id>` after registering at https://trakt.tv/oauth/applications.
+
+Read-only endpoints work with just the client_id (no user OAuth required).
+
+## Data source
+
+`https://api.trakt.tv` — header `trakt-api-key` + `trakt-api-version: 2`.
 
 ## Quick Start
 
@@ -29,7 +39,7 @@ Add to your MCP client (Claude Desktop, Cursor, Windsurf, etc.):
 }
 ```
 
-Or connect to the full Pipeworx gateway for access to all 673+ data sources:
+Or connect to the full Pipeworx gateway for access to all 1394+ data sources:
 
 ```json
 {
@@ -53,7 +63,7 @@ The gateway picks the right tool and fills the arguments automatically.
 
 ## More
 
-- [All tools and guides](https://github.com/pipeworx-io/examples)
+- [Docs and guides](https://pipeworx.io/docs)
 - [pipeworx.io](https://pipeworx.io)
 
 ## License
